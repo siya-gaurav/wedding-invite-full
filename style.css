@@ -537,6 +537,19 @@ a:hover{
 .parting-message button{
     margin:  10vh auto;
 }
+.hashtag {
+    text-align: center;
+    margin: 40px 0;
+    font-family: 'Quicksand', sans-serif;
+    color: #cc4078; /* A pink to match the flower animation */
+    font-weight: bold;
+    font-size: var(--h2-size);
+}
+.hashtag-home {
+    margin: 20px 0;
+    font-size: 1.5rem;
+    text-align: left;
+}
 
 /* <===================FOOTER===================> */
 
