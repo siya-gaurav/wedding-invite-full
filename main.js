@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const distance = weddingDate - now;
         if (distance < 0) {
             clearInterval(countdownInterval);
-            overlay.classList.add('hidden');
             return;
         }
 
@@ -61,6 +60,17 @@ window.addEventListener("scroll", function() {
 
     // --- Reveal animations ---
     reveal();
+
+    // --- Show/hide back to home button ---
+    const backToHomeBtn = document.getElementById("backToHome");
+    const scrollToDownBtn = document.getElementById("scrollToDown");
+    if (window.pageYOffset > 300) {
+        backToHomeBtn.classList.add("show");
+        scrollToDownBtn.classList.remove("show");
+    } else {
+        backToHomeBtn.classList.remove("show");
+        scrollToDownBtn.classList.add("show");
+    }
 })
 
 function myFunction() {
@@ -95,16 +105,3 @@ for (var i = 0; i < reveals.length; i++) {
       }
     }
 }
-  
-// Show/hide back to home button based on scroll position
-window.addEventListener("scroll", function() { // This can also be merged, but is fine as is.
-    const backToHomeBtn = document.getElementById("backToHome");
-    const scrollToDownBtn = document.getElementById("scrollToDown");
-    if (window.pageYOffset > 300) {
-        backToHomeBtn.classList.add("show");
-        scrollToDownBtn.classList.remove("show");
-    } else {
-        backToHomeBtn.classList.remove("show");
-        scrollToDownBtn.classList.add("show");
-    }
-});
