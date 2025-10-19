@@ -170,6 +170,7 @@ a:hover{
     }
 }
 
+
 /* <===================HOME===================> */
 
 .container-out{
@@ -179,15 +180,29 @@ a:hover{
     justify-content: space-between;
 }
 .home-img{
-    background-image: url(https://photos.google.com/share/AF1QipMf7hD1UvZZKyUa05biXVhjxXuhT6MrNFUx3eKsHZSwjCVGUUFcmHRQqxfgId3rvw/photo/AF1QipNt3ZhCqpsB9A6aJKY7qREgOK7jZw3UPf5mLU6n?key=OGp4SGthZjFrUV9xRTdQR3lFVm5xRzRVRkM4ZHJn);
+    background-image: url("./assests/photo1.png");
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;      /* stop tiling */
+    background-position: center center;   /* consistent centering */
+    background-size: cover;               /* keep cover */
+    background-attachment: scroll;        /* IMPORTANT: avoid fixed for parallax */
+    position: relative;                   /* create stacking context */
+    overflow: hidden;                     /* hide any bleed */
+    will-change: background-position;     /* hint for smoother animation */
+    backface-visibility: hidden;          /* reduce painting artifacts */
+    -webkit-transform: translateZ(0);     /* create GPU layer */
+
+
 }
 .home-img-sm{
     display: none;
     width: 100%;
     margin: 20px 0 0 0;
     height: 50vh;
+    background-image: url("./assests/photo1.png");
+    background-size: cover;
+    background-position: center;
 }
 #home-img-lg{
     display: block;
@@ -225,7 +240,7 @@ a:hover{
     margin: 8vh 0;
 }
 .timeline-img{
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/chuck-842bb.appspot.com/o/GurAmanWed%2Fpic2.jpg?alt=media&token=7a0e5f94-d68e-4d32-bd3b-2a82b7acd40c);
+    background-image: url("./assests/photo2.png");
     height: 70vh;
     width: 30vw;
     background-position: center;
@@ -362,9 +377,9 @@ a:hover{
 .hands{
     height: 120vh;
     width: 100%;
-    background-image: url(https://firebasestorage.googleapis.com/v0/b/chuck-842bb.appspot.com/o/GurAmanWed%2Fpic6.jpg?alt=media&token=febecde7-9479-4a1e-8402-28f021228422);
+    background-image: url("./assests/photo1.jpeg");
     background-size: cover;
-    background-position-y: center;
+    background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
