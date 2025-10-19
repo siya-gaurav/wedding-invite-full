@@ -82,10 +82,60 @@ h3{
     position: relative;
     top: 100vh;
 }
+
+/* <===================COUNTDOWN BANNER===================> */
+#countdown-banner {
+    background-color: #f7d9e5; /* A soft pink to match flowers */
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    z-index: 1001; /* Ensure it's above flower rain */
+}
+
+#countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.countdown-el {
+    margin: 0 15px;
+    color: #333;
+}
+
+.countdown-el p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1;
+}
+
+.countdown-el span {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+@media (max-width: 570px) {
+    .countdown-el {
+        margin: 0 10px;
+    }
+    .countdown-el p {
+        font-size: 1.2rem;
+    }
+    .countdown-el span {
+        font-size: 0.6rem;
+    }
+}
+
+
 /* <===================NAVBAR===================> */
 
 nav{
     height: 3vh;
+    height: 80px; /* Match the line-height of the logo and nav items */
     width: 100%;
     margin-bottom: 20vh;
 }
@@ -592,6 +642,13 @@ footer h2{
 .petal:nth-child(10) { left: 5%; animation-delay: -9s; animation-duration: 16s; }
 .petal:nth-child(11) { left: 85%; animation-delay: -1.5s; animation-duration: 12s; }
 .petal:nth-child(12) { left: 45%; animation-delay: -3.5s; animation-duration: 9s; }
+.petal:nth-child(13) { left: 15%; animation-delay: -10s; animation-duration: 14s; }
+.petal:nth-child(14) { left: 25%; animation-delay: -6s; animation-duration: 11s; }
+.petal:nth-child(15) { left: 35%; animation-delay: -1s; animation-duration: 13s; }
+.petal:nth-child(16) { left: 55%; animation-delay: -4s; animation-duration: 10s; }
+.petal:nth-child(17) { left: 65%; animation-delay: -8s; animation-duration: 15s; }
+.petal:nth-child(18) { left: 75%; animation-delay: -2s; animation-duration: 9s; }
+.petal:nth-child(19) { left: 95%; animation-delay: -5s; animation-duration: 12s; }
 
 /* Make petals slightly different */
 .petal:nth-child(odd) {
