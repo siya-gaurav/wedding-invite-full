@@ -135,9 +135,9 @@ h3{
 
 nav{
     height: 3vh;
-    height: 80px; /* Match the line-height of the logo and nav items */
+    /* height: 80px; Match the line-height of the logo and nav items */
     width: 100%;
-    margin-bottom: 20vh;
+    margin-bottom: 10vh;
 }
 label.logo{
     font-size: 35px;
@@ -170,7 +170,7 @@ a:hover{
 .checkbtn{
     font-size: 30px;
     float: right;
-    line-height: 80px;
+    /* line-height: 80px; */
     margin-right: 40px;
     cursor: pointer;
     display: none;
