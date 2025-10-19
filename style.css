@@ -74,10 +74,10 @@ h3{
 .v-reposition-container{
     position: absolute;
     left: 0;
-    width: 100vw;
+    width: 100%;
 }
 .h-reposition-container{
-    width: 100vw;
+    width: 100%;
     position: relative;
     top: 100vh;
 }
@@ -399,6 +399,12 @@ a:hover{
 .stay-item .text{
     margin: 20px 0;
 }
+.stay-item{
+    flex: 1;
+}
+.stay-item-map{
+    flex: 2;
+}
 .links{
     cursor: pointer;
     text-decoration: underline;
@@ -410,6 +416,10 @@ a:hover{
     }
     .stay-item{
         margin: 2vh 0;
+    }
+    .stay-item-map{
+        width: 100%;
+        flex: none;
     }
 }
 
@@ -531,5 +541,70 @@ footer h2{
         width: 45px;
         height: 45px;
         font-size: 16px;
+    }
+}
+
+/* <===================FLOWER RAIN ANIMATION===================> */
+
+.flower-rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    top: -10%;
+    width: 15px;
+    height: 15px;
+    background-color: #cc4078; /* Light pink petal color */
+    border-radius: 10px 0;
+    opacity: 0.8;
+    animation: fall 10s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.petal:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 12s; }
+.petal:nth-child(2) { left: 20%; animation-delay: -5s; animation-duration: 10s; }
+.petal:nth-child(3) { left: 30%; animation-delay: -2s; animation-duration: 15s; }
+.petal:nth-child(4) { left: 40%; animation-delay: -8s; animation-duration: 11s; }
+.petal:nth-child(5) { left: 50%; animation-delay: -1s; animation-duration: 9s; }
+.petal:nth-child(6) { left: 60%; animation-delay: -6s; animation-duration: 13s; }
+.petal:nth-child(7) { left: 70%; animation-delay: -3s; animation-duration: 10s; }
+.petal:nth-child(8) { left: 80%; animation-delay: -7s; animation-duration: 14s; }
+.petal:nth-child(9) { left: 90%; animation-delay: -4s; animation-duration: 8s; }
+.petal:nth-child(10) { left: 5%; animation-delay: -9s; animation-duration: 16s; }
+.petal:nth-child(11) { left: 85%; animation-delay: -1.5s; animation-duration: 12s; }
+.petal:nth-child(12) { left: 45%; animation-delay: -3.5s; animation-duration: 9s; }
+
+/* Make petals slightly different */
+.petal:nth-child(odd) {
+    width: 10px;
+    height: 10px;
+    background-color: #fff0f5; /* Lighter pink */
+}
+
+.petal:nth-child(3n) {
+    animation-duration: 18s; /* Slower ones */
+}
+
+@media (max-width: 768px) {
+    .petal {
+        width: 10px;
+        height: 10px;
     }
 }
