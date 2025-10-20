@@ -12,6 +12,9 @@
     --horizontal-margin-spacing:6rem;
     --grey-color-light: rgba(232,230,230,.6);
     --grey-color: rgba(232,230,230,1);
+    --caramel-light: #F5EBE0; /* A very light cream for backgrounds */
+    --caramel-main: #E6CBAA; /* Main caramel accent */
+    --caramel-dark: #8B5A2B; /* Dark brown for text/accents */
 }
 
 /* <===================UNIVERSAL CSS===================> */
@@ -23,6 +26,11 @@
     color: #212121;
     width: 100%;
 }
+
+body {
+    background-color: #fffcf9; /* A very light, warm off-white */
+}
+
 html{
     scroll-behavior: smooth;
 }
@@ -86,6 +94,7 @@ h3{
 /* <===================COUNTDOWN BANNER===================> */
 #countdown-banner {
     background-color: #f7d9e5; /* A soft pink to match flowers */
+    background-color: var(--caramel-main);
     padding: 10px 0;
     text-align: center;
     width: 100%;
@@ -165,6 +174,7 @@ nav ul li a{
 }
 a:hover{
     color: orange;
+    color: var(--caramel-dark);
     transition: .5s;
 }
 .checkbtn{
@@ -278,6 +288,7 @@ a:hover{
 .timeline{
     display: block;
     background-color: var(--grey-color-light);
+    background-color: var(--caramel-light);
     float: left;
     position: relative;
     top: -30vh;
@@ -306,6 +317,7 @@ a:hover{
 @media (max-width:1000px){
     .timeline{
         background-color: var(--grey-color);
+        background-color: var(--caramel-light);
         float: none;
         position: relative;
         top: 0;
@@ -437,6 +449,7 @@ a:hover{
     /* <===================STAY===================> */
     #stay{
         background-color: var(--grey-color);
+        background-color: var(--caramel-light);
         padding: 10vh var(--horizontal-margin-spacing);
         width: 100%;
 }
@@ -542,6 +555,7 @@ a:hover{
     margin: 40px 0;
     font-family: 'Quicksand', sans-serif;
     color: #cc4078; /* A pink to match the flower animation */
+    color: var(--caramel-dark);
     font-weight: bold;
     font-size: var(--h2-size);
 }
@@ -558,6 +572,7 @@ footer{
     height: fit-content;
     width: 100%;
     background-color: var(--grey-color);
+    background-color: var(--caramel-main);
     padding: 10vh 30px;
 }
 footer h2{
@@ -575,6 +590,7 @@ footer h2{
     height: 50px;
     border-radius: 50%;
     background-color: #e4dcdc;
+    background-color: var(--caramel-main);
     color: white;
     border: none;
     cursor: pointer;
@@ -587,6 +603,7 @@ footer h2{
 
 .back-to-home-btn:hover {
     background-color: #333;
+    background-color: var(--caramel-dark);
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
 }
@@ -626,6 +643,7 @@ footer h2{
     width: 15px;
     height: 15px;
     background-color: #cc4078; /* Light pink petal color */
+    background-color: var(--caramel-main);
     border-radius: 10px 0;
     opacity: 0.8;
     animation: fall 10s linear infinite;
@@ -668,6 +686,7 @@ footer h2{
     width: 10px;
     height: 10px;
     background-color: #fff0f5; /* Lighter pink */
+    background-color: #FFF8E7; /* Lighter cream */
 }
 
 .petal:nth-child(3n) {

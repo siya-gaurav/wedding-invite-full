@@ -1,6 +1,6 @@
 // --- Countdown Timer Logic ---
 document.addEventListener('DOMContentLoaded', () => {
-    const weddingDate = new Date("Nov 30, 2025 15:00:00").getTime();
+    const weddingDate = new Date("Nov 30, 2025 20:00:00").getTime();
 
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
