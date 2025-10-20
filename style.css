@@ -695,16 +695,16 @@ footer h2{
 
 @keyframes    firework-animation {
     0% {background-color : #ff8426;}
-    25% {background-color : #fffc84;}
-    50% {background-color : #ff83f4;}
-    75% {background-color : #83b6ff;}
-    100% {background-color : #ff8426;}
+    25% {background-color : #f5f107;}
+    50% {background-color : #610359;}
+    75% {background-color : #033b8a;}
+    100% {background-color : #e0670b;}
 }
 @-webkit-keyframes firework-animation {
     0% {background-color : #ff8426;}
-    25% {background-color : #fffc84;}
-    50% {background-color : #ff83f4;}
-    75% {background-color : #83b6ff;}
+    25% {background-color : #ebe705;}
+    50% {background-color : #d806c7;}
+    75% {background-color : #051e41;}
     100% {background-color : #ff8426;}
 }
 .fireWorkParticle {
@@ -717,4 +717,57 @@ footer h2{
     animation-timing-function : linear;
     animation-duration : 1s;
     animation-iteration-count : infinite;
+}
+
+
+/* Firework particle (you already have a simple version; this keeps it and ensures pointer-events none) */
+.fireWorkParticle {
+  z-index: 9998;
+  position: absolute;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  animation-name: firework-animation;
+  animation-timing-function: linear;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  pointer-events: none; /* never block clicks */
+  mix-blend-mode: screen; /* nicer glow over backgrounds */
+}
+
+/* particle color cycling (from article) */
+@keyframes firework-animation {
+  0% { background-color: #ff2d26; }
+  25% { background-color: #e70f2c; }
+  50% { background-color: #6e0966; }
+  75% { background-color: #163c70; }
+  100% { background-color: #ff8426; }
+}
+
+/* seed (the rocket that shoots up) */
+@keyframes firework-seed-animation {
+  0% { background-color: #fd6e00; }
+  25% { background-color: #ece800; }
+  100% { background-color: #0f0a5a; }
+}
+.fireWorkSeed {
+  z-index: 9999;
+  position: absolute;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  animation-name: firework-seed-animation;
+  animation-timing-function: linear;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+/* board covers the screen (holds particles) */
+#board {
+  position: fixed;
+  inset: 0;
+  pointer-events: none; /* allow clicks through */
+  z-index: 9996; /* below other UI (adjust if needed) */
 }
