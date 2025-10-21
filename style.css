@@ -253,6 +253,28 @@ a:hover{
 
 
 }
+
+/* Keep "Gaurav ❤️ Siya" on one line and center it perfectly */
+.home h1 {
+    white-space: nowrap;          /* Prevents line break */
+    text-align: center;           /* Center horizontally */
+    display: flex;                /* Flex ensures centered layout even in mobile */
+    /* justify-content: center; */
+    /* align-items: right; */
+    font-size: clamp(2rem, 8vw, 5rem); /* Responsive font size: min 2rem, max 5rem */
+    line-height: 1.2;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Optional: give it breathing space on mobile */
+@media (max-width: 600px) {
+    .home h1 {
+        margin-top: 5vh;
+        font-size: 2.4rem;
+    }
+}
+
 .home-img-sm{
     display: none;
     width: 100%;
@@ -448,22 +470,19 @@ a:hover{
         width: 100%;
 }
 .stay-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px 40px;
     margin: 20vh 0;
 }
 .stay-item .text{
     margin: 20px 0;
 }
-.stay-item{
-    flex: 1;
-}
-.stay-item-map{
-    flex: 2;
-}
 .location-detail {
     margin-bottom: 30px;
+}
+.map-wrapper {
+    margin-bottom: 20px;
 }
 
 .links{
@@ -472,15 +491,11 @@ a:hover{
 }
 @media (max-width:1000px){
     .stay-container{
-        flex-direction: column;
+        display: block;
         margin: 10px 0;
     }
-    .stay-item{
-        margin: 2vh 0;
-    }
-    .stay-item-map{
-        width: 100%;
-        flex: none;
+    .location-detail {
+        margin-top: 40px;
     }
 }
 
@@ -770,4 +785,107 @@ footer h2{
   inset: 0;
   pointer-events: none; /* allow clicks through */
   z-index: 9996; /* below other UI (adjust if needed) */
+}
+
+
+
+/* HERO TITLE ANIMATION */
+.hero-title{
+  display:flex;
+  gap: .6rem;
+  /* align-items:center;
+  justify-content:center; */
+  white-space:nowrap;
+  width:100%;
+  margin: 0 auto 1.2rem;
+  font-size: clamp(2rem, 8vw, 5rem);
+  line-height:1;
+  font-weight:600;
+  position:relative;
+  overflow:visible;
+}
+
+/* start positions */
+.name {
+  display:inline-block;
+  transform: translateY(0);
+  will-change: transform, opacity;
+  opacity: 0;
+}
+
+/* left name starts off slightly left (we'll slide it in from left) */
+.name-left {
+  transform: translateX(-120%) translateY(0) scale(0.98);
+}
+
+/* right name starts off slightly right */
+.name-right {
+  transform: translateX(120%) translateY(0) scale(0.98);
+}
+
+/* heart initial (small & invisible) */
+.heart {
+  display:inline-block;
+  transform: scale(0.2);
+  opacity: 0;
+  will-change: transform, opacity, filter;
+  font-size: 0.85em; /* heart size relative to text */
+  filter: drop-shadow(0 0 0 rgba(0,0,0,0));
+}
+
+/* Active state — triggered by JS */
+.hero-title.animation-play .name-left {
+  animation: slide-in-left 900ms cubic-bezier(.2,.9,.25,1) forwards;
+}
+.hero-title.animation-play .name-right {
+  animation: slide-in-right 900ms cubic-bezier(.2,.9,.25,1) forwards;
+}
+.hero-title.animation-play .heart {
+  animation: heart-pop 700ms cubic-bezier(.2,.9,.25,1) 400ms forwards;
+}
+
+/* small delay on right name so both don't collide visually */
+.hero-title.animation-play .name-right { animation-delay: 120ms; }
+
+/* Keyframes */
+@keyframes slide-in-left {
+  0% { transform: translateX(-120%) scale(.98); opacity:0; }
+  60% { transform: translateX(10%) scale(1.03); opacity:1; }
+  100% { transform: translateX(0) scale(1); opacity:1; }
+}
+@keyframes slide-in-right {
+  0% { transform: translateX(120%) scale(.98); opacity:0; }
+  60% { transform: translateX(-10%) scale(1.03); opacity:1; }
+  100% { transform: translateX(0) scale(1); opacity:1; }
+}
+@keyframes heart-pop {
+  0% { transform: scale(.2); opacity:0; filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
+  50% { transform: scale(1.25); opacity:1; filter: drop-shadow(0 6px 18px rgba(255,50,100,0.12)); }
+  100% { transform: scale(1); opacity:1; filter: drop-shadow(0 6px 18px rgba(0,0,0,0.06)); }
+}
+
+/* Respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-title.animation-play .name-left,
+  .hero-title.animation-play .name-right,
+  .hero-title.animation-play .heart {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+.home h3,
+.home .hashtag,
+.home .container-out {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.home.show-rest h3,
+.home.show-rest .hashtag,
+.home.show-rest .container-out {
+  opacity: 1;
+  transform: translateY(0);
 }

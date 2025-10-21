@@ -268,3 +268,44 @@ const COLORS = [
   }
   setInterval(autoSpawn, AUTO_INTERVAL);
 })();
+
+
+// HERO TITLE ANIMATION TRIGGER + REVEAL REST CONTENT
+(function(){
+  const hero = document.querySelector('.hero-title');
+  const home = document.querySelector('.home');
+  if (!hero || !home) return;
+
+  function playOnView(){
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          hero.classList.add('animation-play');
+
+          // wait until heart pop animation finishes (~700ms delay + 900ms name slide)
+          const totalDelay = 1600; // adjust if you tweak timing in CSS
+          setTimeout(() => {
+            home.classList.add('show-rest');
+          }, totalDelay);
+
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    io.observe(hero);
+  }
+
+  // start animation when hero is visible
+  playOnView();
+
+  // optional replay helper
+  window.playHero = () => {
+    hero.classList.remove('animation-play');
+    home.classList.remove('show-rest');
+    void hero.offsetWidth; // reflow
+    hero.classList.add('animation-play');
+    setTimeout(() => {
+      home.classList.add('show-rest');
+    }, 1600);
+  };
+})();
